@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)http://10.10.10.172:8081/devtools/inspector.html?ws=10.10.10.172:8081/devtools/page/9A46C9E8992A09D117B7B8BC4DD88F1A -->
+<html lang="en" class="-theme-with-dark-background"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="Content-Security-Policy" content="object-src &#39;none&#39;; script-src &#39;self&#39; &#39;unsafe-eval&#39; &#39;unsafe-inline&#39; https://chrome-devtools-frontend.appspot.com">
+    <meta name="referrer" content="no-referrer">
+    <script type="module" src="./DevTools - steamloopback.host_routes_decky_settings_files/root.js"></script>
+    <script type="module" src="./DevTools - steamloopback.host_routes_decky_settings_files/inspector.js"></script>
+<style>/*# sourceURL=inspector.css.theme */</style><title>DevTools - steamloopback.host/routes/decky/settings</title></head>
+<body class="undocked platform-windows" id="-blink-dev-tools">
+
+<style>/*
+ * Copyright (C) 2006, 2007, 2008 Apple Inc.  All rights reserved.
+ * Copyright (C) 2009 Anthony Ricaud <rik@webkit.org>
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1.  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ * 2.  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ * 3.  Neither the name of Apple Computer, Inc. ("Apple") nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL APPLE OR ITS CONTRIBUTORS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+:root {
+  height: 100%;
+  overflow: hidden;
+}
+
+:root {
+  --accent-color: #1a73e8;
+  --accent-fg-color: #1a73e8;
+  --accent-color-hover: #3b86e8;
+  --accent-fg-color-hover: #1567d3;
+  --active-control-bg-color: #5a5a5a;
+  --focus-bg-color: hsl(214deg 40% 92%);
+  --focus-ring-inactive-shadow-color: #e0e0e0;
+  --input-validation-error: #db1600;
+  --toolbar-bg-color: #f3f3f3;
+  --toolbar-hover-bg-color: #eaeaea;
+  --selection-fg-color: white;
+  --selection-inactive-fg-color: #5a5a5a;
+  --selection-inactive-bg-color: #dadada;
+  --tab-selected-fg-color: #333;
+  --tab-selected-bg-color: var(--toolbar-bg-color);
+  --drop-shadow:
+    0 0 0 1px rgb(0 0 0 / 5%),
+    0 2px 4px rgb(0 0 0 / 20%),
+    0 2px 6px rgb(0 0 0 / 10%);
+  --divider-color: #d0d0d0;
+  --focus-ring-inactive-shadow: 0 0 0 1px var(--focus-ring-inactive-shadow-color);
+  --item-selection-bg-color: #cfe8fc;
+  --item-selection-inactive-bg-color: #e0e0e0;
+  --network-grid-default-color: rgb(255 255 255 / 100%);
+  --network-grid-stripe-color: rgb(245 245 245 / 100%);
+  --network-grid-navigation-color: rgb(221 238 255 / 100%);
+  --network-grid-hovered-color: rgb(235 242 252 / 70%);
+  --network-grid-initiator-path-color: rgb(58 217 58 / 40%);
+  --network-grid-initiated-path-color: rgb(217 58 58 / 40%);
+  --network-grid-selected-color: rgb(219 219 219 / 60%);
+  --network-grid-focus-selected-color: var(--selection-bg-color);
+  --network-grid-focus-selected-color-has-error: rgb(255 240 240 / 100%);
+  --network-grid-from-frame-color: rgb(224 247 250 / 40%);
+  --network-grid-is-product-color: rgb(255 252 225 / 60%);
+}
+
+.-theme-with-dark-background {
+  --accent-color: #0e639c;
+  --accent-fg-color: #ccc;
+  --accent-fg-color-hover: #ccc;
+  --accent-color-hover: rgb(17 119 187);
+  --active-control-bg-color: #cdcdcd;
+  --focus-bg-color: hsl(214deg 19% 27%);
+  --focus-ring-inactive-shadow-color: #5a5a5a;
+  --toolbar-bg-color: #292a2d; /* --google-grey-900-white-4-percent */
+  --toolbar-hover-bg-color: #202020;
+  --selection-fg-color: #cdcdcd;
+  --selection-inactive-fg-color: #cdcdcd;
+  --selection-inactive-bg-color: hsl(0deg 0% 28%);
+  --tab-selected-fg-color: #eaeaea;
+  --tab-selected-bg-color: #000;
+  --drop-shadow:
+    0 0 0 1px rgb(255 255 255 / 20%),
+    0 2px 4px 2px rgb(0 0 0 / 20%),
+    0 2px 6px 2px rgb(0 0 0 / 10%);
+  --divider-color: #525252;
+  --focus-ring-inactive-shadow: 0 0 0 1px var(--focus-ring-inactive-shadow-color);
+  --item-selection-bg-color: hsl(207deg 88% 22%);
+  --item-selection-inactive-bg-color: #454545;
+  --network-grid-default-color: rgb(36 36 36 / 100%);
+  --network-grid-stripe-color: rgb(41 41 41 / 100%);
+  --network-grid-navigation-color: rgb(221 238 255 / 100%);
+  --network-grid-hovered-color: rgb(20 37 63 / 70%);
+  --network-grid-initiator-path-color: rgb(58 217 58 / 40%);
+  --network-grid-initiated-path-color: rgb(217 58 58 / 40%);
+  --network-grid-selected-color: rgb(57 57 57 / 60%);
+  --network-grid-focus-selected-color: var(--selection-bg-color);
+  --network-grid-focus-selected-color-has-error: rgb(217 58 58 / 15%);
+  --network-grid-from-frame-color: rgb(224 247 250 / 40%);
+  --network-grid-is-product-color: rgb(255 252 225 / 60%);
+}
+
+:root {
+  --focus-ring-active-shadow: 0 0 0 1px var(--accent-color);
+  --selection-bg-color: var(--accent-color);
+  --divider-border: 1px solid var(--divider-color);
+  --item-hover-color: rgb(56 121 217 / 10%);
+  --network-frame-divider-color: #fccc49;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  cursor: default;
+  font-family: '.SFNSDisplay-Regular', 'Helvetica Neue', 'Lucida Grande', sans-serif;
+  font-size: 12px;
+  tab-size: 4;
+  user-select: none;
+  color: #222;
+  background: white;
+}
+
+.platform-linux {
+  color: rgb(48 57 66);
+  font-family: Roboto, Ubuntu, Arial, sans-serif;
+}
+
+.platform-mac {
+  color: rgb(48 57 66);
+  font-family: '.SFNSDisplay-Regular', 'Helvetica Neue', 'Lucida Grande', sans-serif;
+}
+
+.platform-windows {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+}
+
+.panel {
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background-color: white;
+}
+
+.panel-sidebar {
+  overflow-x: hidden;
+  background-color: var(--toolbar-bg-color);
+}
+
+iframe.extension {
+  flex: auto;
+  width: 100%;
+  height: 100%;
+}
+
+iframe.panel.extension {
+  display: block;
+  height: 100%;
+}
+
+@media (forced-colors: active) {
+  :root {
+    --accent-color: Highlight;
+    --focus-ring-inactive-shadow-color: ButtonText;
+  }
+}
+
+/*# sourceURL=ui/inspectorStyle.css */</style><style>body{color:rgb(255 255 255);background-color:rgb(36 36 36);}
+.platform-linux{color:rgb(246 247 248);}
+.platform-mac{color:rgb(246 247 248);}
+.panel{background-color:rgb(36 36 36);}
+.panel-sidebar{background-color:var(--toolbar-bg-color);}
+
+/*# sourceURL=http://10.10.10.172:8081/devtools/ui/inspectorStyle.css.theme */</style><style>/*
+ * Copyright 2015 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+* {
+  /* This is required for correct sizing of flex items because we rely
+     * on an old version of the flexbox spec.
+     * Longer-term we should remove this, see crbug.com/473625 */
+  min-width: 0;
+  min-height: 0;
+}
+
+:host-context(.platform-mac) .monospace,
+:host-context(.platform-mac) .source-code,
+.platform-mac .monospace,
+.platform-mac .source-code {
+  font-size: 11px !important;
+  font-family: Menlo, monospace;
+}
+
+:host-context(.platform-windows) .monospace,
+:host-context(.platform-windows) .source-code,
+.platform-windows .monospace,
+.platform-windows .source-code {
+  font-size: 12px !important;
+  font-family: Consolas, Lucida Console, Courier New, monospace;
+}
+
+:host-context(.platform-linux) .monospace,
+:host-context(.platform-linux) .source-code,
+.platform-linux .monospace,
+.platform-linux .source-code {
+  font-size: 11px !important;
+  font-family: dejavu sans mono, monospace;
+}
+
+.source-code {
+  font-family: monospace;
+  font-size: 11px !important;
+  white-space: pre-wrap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+:focus {
+  outline-width: 0;
+}
+
+img {
+  -webkit-user-drag: none;
+}
+
+iframe,
+a img {
+  border: none;
+}
+
+.fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+iframe.fill {
+  width: 100%;
+  height: 100%;
+}
+
+.widget {
+  position: relative;
+  flex: auto;
+  contain: style;
+}
+
+.hbox {
+  display: flex;
+  flex-direction: row !important;
+  position: relative;
+}
+
+.vbox {
+  display: flex;
+  flex-direction: column !important;
+  position: relative;
+}
+
+.view-container > .toolbar {
+  border-bottom: 1px solid #eee;
+}
+
+.flex-auto {
+  flex: auto;
+}
+
+.flex-none {
+  flex: none;
+}
+
+.flex-centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overflow-auto {
+  overflow: auto;
+}
+
+iframe.widget {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.monospace {
+  font-size: 10px !important;
+  font-family: monospace;
+}
+
+.highlighted-search-result {
+  border-radius: 1px;
+  background-color: rgb(255 255 0 / 80%);
+  outline: 1px solid rgb(255 255 0 / 80%);
+}
+
+.-theme-with-dark-background .highlighted-search-result,
+:host-context(.-theme-with-dark-background) .highlighted-search-result {
+  background-color: hsl(133deg 100% 30%);
+  color: #333;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+  color: rgb(17 85 204);
+}
+
+button,
+input,
+select {
+  /* Form elements do not automatically inherit font style from ancestors. */
+  font-family: inherit;
+  font-size: inherit;
+}
+
+select option,
+select optgroup,
+input {
+  background-color: white;
+}
+
+input {
+  color: inherit;
+}
+
+input::placeholder {
+  color: rgb(0 0 0 / 54%);
+}
+
+:host-context(.-theme-with-dark-background) input[type="checkbox"]:not(.-theme-preserve) {
+  -webkit-filter: invert(80%);
+}
+
+.harmony-input:not([type]),
+.harmony-input[type=number],
+.harmony-input[type=text] {
+  padding: 3px 6px;
+  height: 24px;
+  border: none;
+  box-shadow: var(--focus-ring-inactive-shadow);
+}
+
+.harmony-input:not([type]):not(.error-input):not(:invalid):hover,
+.harmony-input[type=number]:not(.error-input):not(:invalid):hover,
+.harmony-input[type=text]:not(.error-input):not(:invalid):hover {
+  box-shadow: var(--focus-ring-inactive-shadow);
+}
+
+.harmony-input:not([type]):not(.error-input):not(:invalid):focus,
+.harmony-input[type=number]:not(.error-input):not(:invalid):focus,
+.harmony-input[type=text]:not(.error-input):not(:invalid):focus {
+  box-shadow: var(--focus-ring-active-shadow);
+}
+
+.highlighted-search-result.current-search-result {
+  border-radius: 1px;
+  padding: 1px;
+  margin: -1px;
+  background-color: rgb(255 127 0 / 80%);
+}
+
+.dimmed {
+  opacity: 60%;
+}
+
+.editing {
+  box-shadow: var(--drop-shadow);
+  background-color: white;
+  text-overflow: clip !important;
+  padding-left: 2px;
+  margin-left: -2px;
+  padding-right: 2px;
+  margin-right: -2px;
+  margin-bottom: -1px;
+  padding-bottom: 1px;
+  opacity: 100% !important;
+}
+
+.editing,
+.editing * {
+  color: #222 !important;
+  text-decoration: none !important;
+}
+
+.harmony-input:not([type]).error-input,
+.harmony-input[type=number].error-input,
+.harmony-input[type=text].error-input,
+.harmony-input:not([type]):invalid,
+.harmony-input[type=number]:invalid,
+.harmony-input[type=text]:invalid {
+  box-shadow: 0 0 0 1px #ff1a00;
+}
+
+.chrome-select {
+  -webkit-appearance: none;
+  user-select: none;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 2px;
+  color: #333;
+  font: inherit;
+  margin: 0;
+  outline: none;
+  padding-right: 20px;
+  padding-left: 6px;
+  background-image: -webkit-image-set(url(Images/chromeSelect.png) 1x, url(Images/chromeSelect_2x.png) 2x);
+  background-color: hsl(0deg 0% 98%);
+  background-position: right center;
+  background-repeat: no-repeat;
+  min-height: 24px;
+  min-width: 80px;
+  background-size: 15px;
+}
+
+.chrome-select:enabled:active,
+.chrome-select:enabled:focus,
+.chrome-select:enabled:hover {
+  background-color: hsl(0deg 0% 96%);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.chrome-select:enabled:active {
+  background-color: #f2f2f2;
+}
+
+.chrome-select:enabled:focus {
+  border-color: transparent;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 0 0 2px rgb(66 133 244 / 40%);
+}
+
+.chrome-select:disabled {
+  opacity: 38%;
+}
+
+.chrome-select-label {
+  margin: 0 22px;
+  flex: none;
+}
+
+.chrome-select-label p {
+  margin-top: 0;
+  color: gray;
+}
+
+.chrome-select optgroup,
+.chrome-select option {
+  background-color: #eee;
+  color: #222;
+}
+
+:not(.platform-mac).-theme-with-dark-background ::-webkit-scrollbar,
+:host-context(:not(.platform-mac).-theme-with-dark-background) ::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+:not(.platform-mac).-theme-with-dark-background ::-webkit-scrollbar-track,
+:host-context(:not(.platform-mac).-theme-with-dark-background) ::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 1px rgb(255 255 255 / 30%);
+  background: rgb(36 36 36);
+}
+
+:not(.platform-mac).-theme-with-dark-background ::-webkit-scrollbar-thumb,
+:host-context(:not(.platform-mac).-theme-with-dark-background) ::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color: #333;
+  -webkit-box-shadow: inset 0 0 1px rgb(255 255 255 / 50%);
+}
+
+:not(.platform-mac).-theme-with-dark-background ::-webkit-scrollbar-corner,
+:host-context(:not(.platform-mac).-theme-with-dark-background) ::-webkit-scrollbar-corner {
+  background-color: #242424;
+}
+
+.gray-info-message {
+  text-align: center;
+  font-style: italic;
+  padding: 6px;
+  color: #888;
+  white-space: nowrap;
+}
+
+span[is=dt-icon-label] {
+  flex: none;
+}
+
+.full-widget-dimmed-banner a {
+  color: inherit;
+}
+
+.full-widget-dimmed-banner {
+  color: #777;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 13px;
+  overflow: auto;
+  z-index: 500;
+}
+
+[is=ui-icon] {
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.-theme-with-dark-background [is=ui-icon].icon-invert,
+:host-context(.-theme-with-dark-background) [is=ui-icon].icon-invert {
+  filter: invert(80%) hue-rotate(180deg);
+}
+
+[is=ui-icon].icon-mask {
+  background-color: rgb(110 110 110);
+  -webkit-mask-position: var(--spritesheet-position);
+}
+
+[is=ui-icon]:not(.icon-mask) {
+  background-position: var(--spritesheet-position);
+}
+
+.spritesheet-smallicons:not(.icon-mask) {
+  background-image: url(Images/smallIcons.svg);
+}
+
+.spritesheet-smallicons.icon-mask {
+  -webkit-mask-image: url(Images/smallIcons.svg);
+}
+
+.spritesheet-largeicons:not(.icon-mask) {
+  background-image: url(Images/largeIcons.svg);
+}
+
+.spritesheet-largeicons.icon-mask {
+  -webkit-mask-image: url(Images/largeIcons.svg);
+}
+
+.spritesheet-mediumicons:not(.icon-mask) {
+  background-image: url(Images/mediumIcons.svg);
+}
+
+.spritesheet-mediumicons.icon-mask {
+  -webkit-mask-image: url(Images/mediumIcons.svg);
+}
+
+.spritesheet-arrowicons {
+  background-image: url(Images/popoverArrows.png);
+}
+
+:host-context(.force-white-icons) [is=ui-icon].spritesheet-smallicons,
+.force-white-icons [is=ui-icon].spritesheet-smallicons,
+[is=ui-icon].force-white-icons.spritesheet-smallicons,
+.-theme-preserve {
+  -webkit-mask-image: url(Images/smallIcons.svg);
+  -webkit-mask-position: var(--spritesheet-position);
+  background: #fafafa !important;
+}
+
+:host-context(.force-white-icons) [is=ui-icon].spritesheet-largeicons,
+.force-white-icons [is=ui-icon].spritesheet-largeicons,
+[is=ui-icon].force-white-icons.spritesheet-largeicons,
+.-theme-preserve {
+  -webkit-mask-image: url(Images/largeIcons.svg);
+  -webkit-mask-position: var(--spritesheet-position);
+  background: #fafafa !important;
+}
+
+:host-context(.force-white-icons) [is=ui-icon].spritesheet-mediumicon,
+.force-white-icons [is=ui-icon].spritesheet-mediumicons,
+[is=ui-icon].force-white-icons.spritesheet-mediumicons,
+.-theme-preserve {
+  -webkit-mask-image: url(Images/mediumIcons.svg);
+  -webkit-mask-position: var(--spritesheet-position);
+  background: #fafafa !important;
+}
+
+.expandable-inline-button {
+  background-color: #dedede;
+  color: #333;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.undisplayable-text,
+.expandable-inline-button {
+  padding: 1px 3px;
+  margin: 0 2px;
+  font-size: 11px;
+  font-family: sans-serif;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+.undisplayable-text::after,
+.expandable-inline-button::after {
+  content: attr(data-text);
+}
+
+.undisplayable-text {
+  color: rgb(128 128 128);
+  font-style: italic;
+}
+
+.expandable-inline-button:hover {
+  background-color: #d5d5d5;
+}
+
+.expandable-inline-button[data-keyboard-focus="true"] {
+  background-color: #bbb;
+}
+
+::selection {
+  background-color: #bbdefb;
+}
+
+.-theme-with-dark-background *::selection,
+:host-context(.-theme-with-dark-background) *::selection {
+  background-color: #9e9e9e;
+}
+
+button.link {
+  border: none;
+  background: none;
+  padding: 3px;
+}
+
+button.link[data-keyboard-focus="true"]:focus {
+  background-color: rgb(0 0 0 / 8%);
+  border-radius: 2px;
+}
+
+/* See ARIAUtils.js */
+
+[data-aria-utils-animation-hack] {
+  animation: ANIMATION-HACK 0s;
+}
+
+@keyframes ANIMATION-HACK {
+}
+
+@media (forced-colors: active) {
+  .dimmed,
+  .chrome-select:disabled {
+    opacity: 100%;
+  }
+
+  [is=ui-icon].icon-mask,
+  :host-context(.force-white-icons) [is=ui-icon].spritesheet-smallicons,
+  .force-white-icons [is=ui-icon].spritesheet-smallicons,
+  [is=ui-icon].force-white-icons.spritesheet-smallicons,
+  .-theme-preserve,
+  :host-context(.force-white-icons) [is=ui-icon].spritesheet-largeicons,
+  .force-white-icons [is=ui-icon].spritesheet-largeicons,
+  [is=ui-icon].force-white-icons.spritesheet-largeicons,
+  .-theme-preserve,
+  :host-context(.force-white-icons) [is=ui-icon].spritesheet-mediumicon,
+  .force-white-icons [is=ui-icon].spritesheet-mediumicons,
+  [is=ui-icon].force-white-icons.spritesheet-mediumicons,
+  .-theme-preserve {
+    forced-color-adjust: none;
+    background-color: ButtonText;
+  }
+
+  .harmony-input:not([type]),
+  .harmony-input[type=number],
+  .harmony-input[type=text] {
+    border: 1px solid ButtonText;
+  }
+}
+
+/* search input with customized styling */
+input.custom-search-input::-webkit-search-cancel-button {
+  appearance: none;
+  cursor: pointer;
+  width: 16px;
+  height: 15px;
+  margin-right: 0;
+  background: -32px 32px url(Images/mediumIcons.svg);
+}
+
+/*# sourceURL=ui/inspectorCommon.css */</style><style>.view-container > .toolbar{border-bottom-color:rgb(44 44 44);}
+.highlighted-search-result{background-color:rgb(255 255 0 / 80%);outline-color:rgb(255 255 168 / 80%);}
+.link{color:rgb(191 212 250);}
+select option, select optgroup, input{background-color:rgb(36 36 36);}
+input::placeholder{color:rgb(255 255 255 / 54%);}
+.harmony-input:not([type]), .harmony-input[type="number"], .harmony-input[type="text"]{box-shadow:var(--focus-ring-inactive-shadow);}
+.harmony-input:not([type]):not(.error-input):not(:invalid):hover, .harmony-input[type="number"]:not(.error-input):not(:invalid):hover, .harmony-input[type="text"]:not(.error-input):not(:invalid):hover{box-shadow:var(--focus-ring-inactive-shadow);}
+.harmony-input:not([type]):not(.error-input):not(:invalid):focus, .harmony-input[type="number"]:not(.error-input):not(:invalid):focus, .harmony-input[type="text"]:not(.error-input):not(:invalid):focus{box-shadow:var(--focus-ring-active-shadow);}
+.highlighted-search-result.current-search-result{background-color:rgb(255 127 0 / 80%);}
+.editing{box-shadow:var(--drop-shadow);background-color:rgb(36 36 36);}
+.editing, .editing *{color:rgb(255 255 255) !important;}
+.harmony-input:not([type]).error-input, .harmony-input[type="number"].error-input, .harmony-input[type="text"].error-input, .harmony-input:not([type]):invalid, .harmony-input[type="number"]:invalid, .harmony-input[type="text"]:invalid{box-shadow:rgb(255 177 168) 0px 0px 0px 1px;}
+.chrome-select{border-top-color:rgb(230 230 230 / 20%);border-right-color:rgb(230 230 230 / 20%);border-bottom-color:rgb(230 230 230 / 20%);border-left-color:rgb(230 230 230 / 20%);color:rgb(250 250 250);background-color:rgb(38 38 38);}
+.chrome-select:enabled:active, .chrome-select:enabled:focus, .chrome-select:enabled:hover{background-color:rgb(41 41 41);box-shadow:rgb(255 255 255 / 10%) 0px 1px 2px;}
+.chrome-select:enabled:active{background-color:rgb(42 42 42);}
+.chrome-select:enabled:focus{box-shadow:rgb(255 255 255 / 10%) 0px 1px 2px, rgb(147 185 249 / 40%) 0px 0px 0px 2px;}
+.chrome-select-label p{color:lightgrey;}
+.chrome-select optgroup, .chrome-select option{background-color:rgb(44 44 44);color:rgb(255 255 255);}
+.gray-info-message{color:rgb(207 207 207);}
+.full-widget-dimmed-banner{color:rgb(216 216 216);background-color:rgb(36 36 36);}
+[is="ui-icon"].icon-mask{background-color:rgb(145 145 145);}
+.expandable-inline-button{background-color:rgb(52 52 52);color:rgb(250 250 250);}
+.undisplayable-text{color:rgb(211 211 211);}
+.expandable-inline-button:hover{background-color:rgb(57 57 57);}
+.expandable-inline-button[data-keyboard-focus="true"]{background-color:rgb(70 70 70);}
+::selection{background-color:rgb(6 58 101);}
+button.link[data-keyboard-focus="true"]:focus{background-color:rgb(255 255 255 / 8%);}
+
+/*# sourceURL=http://10.10.10.172:8081/devtools/ui/inspectorCommon.css.theme */</style><style>/*
+ * Copyright (c) 2014 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.text-button {
+  margin: 2px;
+  height: 24px;
+  font-size: 12px;
+  border: 1px solid rgb(0 0 0 / 20%);
+  border-radius: 4px;
+  padding: 0 12px;
+  font-weight: 500;
+  color: var(--accent-fg-color);
+  background-color: #fff;
+  flex: none;
+  white-space: nowrap;
+}
+
+.text-button:not(:disabled):focus,
+.text-button:not(:disabled):hover,
+.text-button:not(:disabled):active {
+  background-color: var(--toolbar-bg-color);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+  cursor: pointer;
+}
+
+.text-button:not(:disabled):not(.running):focus,
+.text-button:not(:disabled):not(.running):hover,
+.text-button:not(:disabled):not(.running):active {
+  color: var(--accent-fg-color-hover);
+}
+
+.text-button:not(:disabled):active {
+  background-color: #f2f2f2;
+}
+
+.text-button:not(:disabled):focus {
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 0 0 2px rgb(66 133 244 / 40%);
+}
+
+.text-button:disabled {
+  opacity: 38%;
+}
+
+.text-button.primary-button,
+.-theme-preserve {
+  background-color: var(--accent-color);
+  border: none;
+  color: #fff;
+}
+
+.text-button.link-style {
+  background: none;
+  border: none;
+  padding: 0 !important;
+  font: inherit;
+  cursor: pointer;
+  height: 18px;
+}
+
+.text-button.primary-button:not(:disabled):focus,
+.text-button.primary-button:not(:disabled):hover,
+.text-button.primary-button:not(:disabled):active,
+.-theme-preserve {
+  background-color: var(--accent-color-hover);
+  color: #fff;
+}
+
+.-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):focus,
+.-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):hover,
+.-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):active {
+  background-color: #313131;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+
+.-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):focus {
+  box-shadow: 0 1px 2px rgb(0 0 0 / 10%), 0 0 0 2px rgb(94 151 246 / 60%);
+}
+
+.-theme-with-dark-background .text-button:not(.primary-button):not(:disabled):active {
+  background-color: #3e3e3e;
+}
+
+@media (forced-colors: active) {
+  .text-button {
+    background-color: ButtonFace;
+    color: ButtonText;
+    border-color: ButtonText;
+  }
+
+  .text-button:not(:disabled):focus {
+    forced-color-adjust: none;
+    background-color: ButtonFace;
+    color: ButtonText;
+    border-color: Highlight;
+    box-shadow: var(--focus-ring-active-shadow);
+  }
+
+  .text-button:not(:disabled):hover,
+  .text-button:not(:disabled):active {
+    forced-color-adjust: none;
+    background-color: Highlight;
+    color: HighlightText;
+    box-shadow: var(--accent-color);
+  }
+
+  .text-button.primary-button {
+    forced-color-adjust: none;
+    background-color: Highlight;
+    color: HighlightText;
+    border: 1px solid Highlight;
+  }
+
+  .text-button.primary-button:not(:disabled):focus {
+    background-color: Highlight;
+    color: HighlightText;
+    border-color: ButtonText;
+  }
+
+  .text-button.primary-button:not(:disabled):hover,
+  .text-button.primary-button:not(:disabled):active {
+    background-color: HighlightText;
+    color: Highlight;
+    border-color: Highlight;
+  }
+
+  .text-button:disabled {
+    forced-color-adjust: none;
+    opacity: 100%;
+    background: ButtonFace;
+    border-color: GrayText;
+    color: GrayText;
+  }
+}
+
+/*# sourceURL=ui/textButton.css */</style><style>.text-button{border-top-color:rgb(230 230 230 / 20%);border-right-color:rgb(230 230 230 / 20%);border-bottom-color:rgb(230 230 230 / 20%);border-left-color:rgb(230 230 230 / 20%);color:var(--accent-fg-color);background-color:rgb(36 36 36);}
+.text-button:not(:disabled):focus, .text-button:not(:disabled):hover, .text-button:not(:disabled):active{background-color:var(--toolbar-bg-color);box-shadow:rgb(255 255 255 / 10%) 0px 1px 2px;}
+.text-button:not(:disabled):not(.running):focus, .text-button:not(:disabled):not(.running):hover, .text-button:not(:disabled):not(.running):active{color:var(--accent-fg-color-hover);}
+.text-button:not(:disabled):active{background-color:rgb(42 42 42);}
+.text-button:not(:disabled):focus{box-shadow:rgb(255 255 255 / 10%) 0px 1px 2px, rgb(147 185 249 / 40%) 0px 0px 0px 2px;}
+
+/*# sourceURL=http://10.10.10.172:8081/devtools/ui/textButton.css.theme */</style><style>/*
+ * Copyright (C) 2009 Apple Inc.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1.  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ * 2.  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ * 3.  Neither the name of Apple Computer, Inc. ("Apple") nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL APPLE OR ITS CONTRIBUTORS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+.cm-js-keyword { color: hsl(310deg 86% 36%); }
+.cm-js-number { color: hsl(248deg 100% 41%); }
+.cm-js-comment { color: hsl(120deg 100% 23%); font-style: italic; }
+.cm-js-string { color: hsl(1deg 80% 43%); }
+.cm-js-string-2 { color: hsl(1deg 99% 39%); }
+.cm-js-atom { color: hsl(310deg 86% 36%); }
+.cm-js-def { color: hsl(240deg 73% 38%); }
+.cm-js-operator { color: hsl(27deg 100% 30%); }
+.cm-js-meta { color: hsl(27deg 100% 30%); }
+.cm-js-variable-2 { color: hsl(240deg 73% 38%); }
+
+.cm-css-keyword { color: rgb(7 144 154); }
+.cm-css-number { color: rgb(50 0 255); }
+.cm-css-comment { color: rgb(0 116 0); }
+.cm-css-def { color: rgb(200 0 0); }
+.cm-css-meta { color: rgb(200 0 0); }
+.cm-css-atom { color: rgb(7 144 154); }
+.cm-css-string { color: rgb(7 144 154); }
+.cm-css-string-2 { color: rgb(7 144 154); }
+.cm-css-link { color: rgb(7 144 154); }
+.cm-css-variable { color: rgb(200 0 0); }
+.cm-css-variable-2 { color: rgb(0 0 128); }
+
+.cm-css-property,
+.webkit-css-property { color: rgb(200 0 0); }
+
+.cm-xml-meta { color: rgb(192 192 192); }
+.cm-xml-comment { color: rgb(35 110 37); }
+.cm-xml-string { color: rgb(26 26 166); }
+.cm-xml-tag { color: var(--dom-tag-name-color); }
+.cm-xml-attribute { color: rgb(153 69 0); }
+.cm-xml-link { color: #00e; }
+
+:root {
+  --dom-tag-name-color: rgb(136 18 128);
+  --dom-attribute-name-color: rgb(153 69 0);
+}
+
+.webkit-html-comment {
+  /* Keep this in sync with view-source.css (.webkit-html-comment) */
+  color: rgb(35 110 37);
+}
+
+.webkit-html-tag {
+  color: rgb(168 148 166);
+}
+
+.webkit-html-tag-name,
+.webkit-html-close-tag-name {
+  /* Keep this in sync with view-source.css (.webkit-html-tag) */
+  color: var(--dom-tag-name-color);
+}
+
+.webkit-html-pseudo-element {
+  /* This one is non-standard. */
+  color: brown;
+}
+
+.webkit-html-js-node,
+.webkit-html-css-node {
+  white-space: pre-wrap;
+}
+
+.webkit-html-text-node {
+  unicode-bidi: -webkit-isolate;
+}
+
+.webkit-html-entity-value {
+  /* This one is non-standard. */
+  background-color: rgb(0 0 0 / 15%);
+  unicode-bidi: -webkit-isolate;
+}
+
+.webkit-html-doctype {
+  /* Keep this in sync with view-source.css (.webkit-html-doctype) */
+  color: rgb(192 192 192);
+}
+
+.webkit-html-attribute-name {
+  /* Keep this in sync with view-source.css (.webkit-html-attribute-name) */
+  color: var(--dom-attribute-name-color);
+  unicode-bidi: -webkit-isolate;
+}
+
+.webkit-html-attribute-value {
+  /* Keep this in sync with view-source.css (.webkit-html-attribute-value) */
+  color: rgb(26 26 166);
+  unicode-bidi: -webkit-isolate;
+}
+
+.devtools-link {
+  color: rgb(17 85 204);
+  text-decoration: underline;
+}
+
+.devtools-link [is=ui-icon] {
+  vertical-align: middle;
+}
+
+.devtools-link[data-keyboard-focus="true"]:focus {
+  outline-width: unset;
+}
+
+.devtools-link:not(.devtools-link-prevent-click) {
+  cursor: pointer;
+}
+
+.-theme-with-dark-background .devtools-link,
+:host-context(.-theme-with-dark-background) .devtools-link {
+  color: hsl(0deg 0% 67%);
+}
+
+/* Default CodeMirror Theme */
+.cm-negative { color: #d44; }
+.cm-positive { color: #292; }
+
+.cm-header,
+.cm-strong { font-weight: bold; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-strikethrough { text-decoration: line-through; }
+
+.cm-invalidchar { color: #f00; }
+
+.cm-header { color: blue; }
+.cm-quote { color: #090; }
+
+.cm-keyword { color: #708; }
+.cm-atom { color: #219; }
+.cm-number { color: #164; }
+.cm-def { color: #00f; }
+.cm-variable-2 { color: #05a; }
+
+.cm-variable-3,
+.cm-type { color: #085; }
+.cm-comment { color: #a50; }
+.cm-string { color: #a11; }
+.cm-string-2 { color: #f50; }
+.cm-meta { color: #555; }
+.cm-qualifier { color: #555; }
+.cm-builtin { color: #30a; }
+.cm-bracket { color: #997; }
+.cm-tag { color: #170; }
+.cm-attribute { color: #00c; }
+.cm-hr { color: #999; }
+.cm-link { color: #00c; }
+
+.cm-error { color: #f00; }
+
+@media (forced-colors: active) {
+  .devtools-link:not(.devtools-link-prevent-click) {
+    forced-color-adjust: none;
+    color: linktext;
+  }
+
+  .devtools-link[data-keyboard-focus="true"]:focus {
+    background: Highlight;
+    color: HighlightText;
+  }
+}
+
+/*# sourceURL=ui/inspectorSyntaxHighlight.css */</style><style>/*
+ * Copyright 2015 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.cm-js-atom { color: rgb(161 247 181); }
+.cm-js-attribute { color: rgb(97 148 198); }
+.cm-js-builtin { color: rgb(159 180 214); }
+.cm-js-comment { color: rgb(116 116 116); }
+.cm-js-def { color: var(--dom-tag-name-color); }
+.cm-js-keyword { color: rgb(154 127 213); }
+.cm-js-link { color: rgb(159 180 214); }
+.cm-js-meta { color: rgb(221 251 85); }
+.cm-js-number { color: rgb(161 247 181); }
+.cm-js-operator { color: rgb(210 192 87); }
+.cm-js-property { color: rgb(210 192 87); }
+.cm-js-string { color: rgb(242 139 84); }
+.cm-js-string-2 { color: rgb(242 139 84); }
+.cm-js-tag { color: var(--dom-tag-name-color); }
+.cm-js-variable { color: rgb(217 217 217); }
+.cm-js-variable-2 { color: rgb(217 217 217); }
+.cm-atom { color: rgb(161 247 181); }
+.cm-comment { color: rgb(116 116 116); }
+.cm-variable { color: rgb(217 217 217); }
+.cm-string { color: rgb(242 139 84); }
+.cm-keyword { color: rgb(154 127 213); }
+.cm-number { color: rgb(161 247 181); }
+.cm-operator { color: rgb(210 192 87); }
+.cm-css-atom { color: rgb(217 217 217); }
+.cm-css-builtin { color: rgb(255 163 79); }
+.cm-css-def { color: rgb(255 163 79); }
+.cm-css-comment { color: rgb(116 116 116); }
+.cm-css-meta { color: rgb(132 240 255); }
+.cm-css-number { color: rgb(217 217 217); }
+.cm-css-operator { color: rgb(217 217 217); }
+.cm-css-property { color: rgb(132 240 255); }
+.cm-css-qualifier { color: rgb(255 163 79); }
+.cm-css-string { color: rgb(231 194 111); }
+.cm-css-string-2 { color: rgb(217 217 217); }
+.cm-css-tag { color: rgb(255 163 79); }
+.cm-css-variable { color: rgb(255 163 79); }
+.cm-css-variable-2 { color: rgb(255 163 79); }
+.cm-xml-comment { color: rgb(137 137 137); }
+.cm-xml-error { color: rgb(198 95 95); }
+.cm-xml-string { color: rgb(242 151 102); }
+.cm-xml-tag { color: var(--dom-tag-name-color); }
+.cm-xml-attribute { color: var(--dom-attribute-name-color); }
+.cm-xml-link { color: rgb(231 194 111); }
+
+.webkit-html-attribute-name { color: var(--dom-attribute-name-color); }
+.webkit-html-attribute-value { color: rgb(242 151 102); }
+.webkit-html-comment { color: rgb(137 137 137); }
+.devtools-link { color: rgb(231 194 111); }
+.webkit-html-tag { color: var(--dom-tag-name-color); }
+.webkit-html-tag-name { color: var(--dom-tag-name-color); }
+.webkit-html-close-tag-name { color: var(--dom-tag-name-color); }
+.webkit-html-text-node { color: rgb(207 208 208); }
+.webkit-html-css-node { color: rgb(207 208 208); }
+.webkit-html-js-node { color: rgb(207 208 208); }
+.webkit-html-pseudo-element { color: rgb(93 175 215); }
+.webkit-css-property { color: rgb(53 212 199); }
+
+.cm-def { color: var(--dom-tag-name-color); }
+.cm-header { color: var(--dom-tag-name-color); }
+.cm-variable-2 { color: rgb(217 217 217); }
+
+.cm-variable-2 { color: #05a; }
+
+.cm-variable-3,
+.cm-type { color: rgb(93 176 215); }
+.cm-string { color: rgb(242 139 84); }
+.cm-meta { color: #555; }
+.cm-meta { color: rgb(221 251 85); }
+.cm-qualifier { color: rgb(255 163 79); }
+.cm-builtin { color: rgb(159 180 214); }
+.cm-bracket { color: #997; }
+.cm-tag { color: var(--dom-tag-name-color); }
+.cm-attribute { color: rgb(97 148 198); }
+.cm-hr { color: #999; }
+.cm-link { color: rgb(159 180 214); }
+
+:root {
+  --dom-tag-name-color: rgb(93 176 215);
+  --dom-attribute-name-color: rgb(155 187 220);
+}
+
+/*# sourceURL=ui/inspectorSyntaxHighlightDark.css */</style><div></div><div class="widget vbox root-view" spellcheck="false" style="margin-right: 0px; margin-bottom: 0px;"><style>/*
+ * Copyright 2016 The Chromium Authors. All rights reserved.
+ * Use of this source code is governed by a BSD-style license that can be
+ * found in the LICENSE file.
+ */
+
+.root-view {
+  background-color: white;
+  overflow: hidden;
+  position: absolute !important;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+/*# sourceURL=ui/rootView.css */</style><style>.root-view{background-color:rgb(36 36 36);}
+
+/*# sourceURL=http://10.10.10.172:8081/devtools/ui/rootView.css.theme */</style><div class="vbox flex-auto split-widget"><div class="widget vbox screencast" slot="insertion-point-main"><style>/*
+ * Copyright (C) 2013 Google Inc. All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions are
+ * met:
+ *
+ *     * Redistributions of source code must retain the above copyright
+ * notice, this list of conditions and the following disclaimer.
+ *     * Redistributions in binary form must reproduce the above
+ * copyright notice, this list of conditions and the following disclaimer
+ * in the documentation and/or other materials provided with the
+ * distribution.
+ *     * Neither the name of Google Inc. nor the names of its
+ * contributors may be used to endorse or promote products derived from
+ * this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+ * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+ * A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+ * OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+ * DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+ * THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+ * OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+.screencast {
+  overflow: hidden;
+}
+
+.screencast-navigation {
+  flex-direction: row;
+  display: flex;
+  flex: 24px 0 0;
+  position: relative;
+  padding-left: 1px;
+  border-bottom: 1px solid rgb(64% 64% 64%);
+  background-origin: padding-box;
+  background-clip: padding-box;
+}
+
+.screencast-navigation button {
+  border-radius: 2px;
+  background-color: transparent;
+  background-image:
+    -webkit-image-set(
+      url(Images/navigationControls.png) 1x,
+      url(Images/navigationControls_2x.png) 2x
+    );
+  background-clip: content-box;
+  background-origin: content-box;
+  background-repeat: no-repeat;
+  border: 1px solid transparent;
+  height: 23px;
+  padding: 2px;
+  width: 23px;
+}
+
+.screencast-navigation button:hover,
+.screencast-navigation button:focus {
+  border-color: var(--accent-color-hover);
+}
+
+.screencast-navigation button:active {
+  border-color: #aaa;
+}
+
+.screencast-navigation button[disabled] {
+  opacity: 50%;
+}
+
+.screencast-navigation button.back {
+  background-position-x: -1px;
+}
+
+.screencast-navigation button.forward {
+  background-position-x: -18px;
+}
+
+.screencast-navigation button.reload {
+  background-position-x: -37px;
+}
+
+.screencast-navigation input {
+  -webkit-flex: 1;
+  margin: 2px;
+  max-height: 19px;
+}
+
+.screencast-navigation .progress {
+  background-color: rgb(66 129 235);
+  height: 3px;
+  left: 0;
+  position: absolute;
+  top: 100%;  /* Align with the bottom edge of the parent. */
+  width: 0;
+  z-index: 2;  /* Above .screencast-glasspane. */
+}
+
+.screencast-viewport {
+  display: flex;
+  border: 1px solid #999;
+  border-radius: 20px;
+  flex: none;
+  padding: 20px;
+  margin: 10px;
+  background-color: #eee;
+}
+
+.screencast-canvas-container {
+  flex: auto;
+  display: flex;
+  border: 1px solid #999;
+  position: relative;
+  cursor: -webkit-image-set(url(Images/touchCursor.png) 1x, url(Images/touchCursor_2x.png) 2x), default;
+}
+
+.screencast canvas {
+  flex: auto;
+  position: relative;
+}
+
+.screencast-px {
+  color: rgb(128 128 128);
+}
+
+.screencast-element-title {
+  position: absolute;
+  z-index: 10;
+}
+
+.screencast-tag-name {
+  /* Keep this in sync with view-source.css (.webkit-html-tag) */
+  color: rgb(136 18 128);
+}
+
+.screencast-node-id {
+  /* Keep this in sync with view-source.css (.webkit-html-attribute-value) */
+  color: rgb(26 26 166);
+}
+
+.screencast-class-name {
+  /* Keep this in sync with view-source.css (.webkit-html-attribute-name) */
+  color: rgb(153 69 0);
+}
+
+.screencast-glasspane {
+  background-color: rgb(255 255 255 / 80%);
+  font-size: 30px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*# sourceURL=screencast/screencastView.css */</style><style>.screencast-navigation{border-bottom-color:rgb(92 92 92);}
+.screencast-navigation button:active{border-top-color:rgb(85 85 85);border-right-color:rgb(85 85 85);border-bottom-color:rgb(85 85 85);border-left-color:rgb(85 85 85);}
+.screencast-navigation .progress{background-color:rgb(20 83 189);}
+.screencast-viewport{border-top-color:rgb(102 102 102);border-right-color:rgb(102 102 102);border-bottom-color:rgb(102 102 102);border-left-color:rgb(102 102 102);background-color:rgb(44 44 44);}
+.screencast-canvas-container{border-top-color:rgb(102 102 102);border-right-color:rgb(102 102 102);border-bottom-color:rgb(102 102 102);border-left-color:rgb(102 102 102);}
+.screencast-px{color:rgb(211 211 211);}
+.screencast-tag-name{color:rgb(251 223 249);}
+.screencast-node-id{color:rgb(207 207 248);}
+.screencast-class-name{color:rgb(255 235 219);}
+.screencast-glasspane{background-color:rgb(36 36 36 / 80%);}
+
+/*# sourceURL=http://10.10.10.172:8081/devtools/screencast/screencastView.css.theme */</style><div class="screencast-navigation"><button class="back" aria-label="back"></button><button class="forward" disabled="" aria-label="forward"></button><button class="reload" aria-label="reload"></button><input spellcheck="false" class="harmony-input" aria-label="Address bar" type="text"><div class="progress"></div></div><div class="screencast-viewport" style="width: 702px; height: 455.443px;"><div class="screencast-canvas-container"><div class="screencast-glasspane fill hidden"></div><canvas aria-label="Screencast view of debug target" tabindex="0" width="658" height="411"></canvas><div class="screencast-element-title monospace hidden" style="top: 10px; left: 5px;"><span class="screencast-tag-name">div</span><span class="screencast-node-id"></span><span class="screencast-class-name"></span> <span>854</span><span class="screencast-px">px</span> × <span>534</span><span class="screencast-px">px</span></div></div></div></div><div class="widget vbox" slot="insertion-point-sidebar"><div class="vbox flex-auto split-widget"><div class="vbox flex-auto tabbed-pane main-tabbed-pane" slot="insertion-point-main"><div class="widget vbox flex-auto view-container overflow-auto" tabindex="-1" role="tabpanel" aria-label="Elements panel"><div class="widget vbox panel elements" aria-label="elements"><style>/*
+ * Copyright (C) 2006, 2007, 2008 Apple Inc.  All rights reserved.
+ * Copyright (C) 2009 Anthony Ricaud <rik@webkit.org>
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1.  Redistributions of source code must retain the above copyright
+ *     notice, this list of conditions and the following disclaimer.
+ * 2.  Redistributions in binary form must reproduce the above copyright
+ *     notice, this list of conditions and the following disclaimer in the
+ *     documentation and/or other materials provided with the distribution.
+ * 3.  Neither the name of Apple Computer, Inc. ("Apple") nor the names of
+ *     its contributors may be used to endorse or promote products derived
+ *     from this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY APPLE AND ITS CONTRIBUTORS "AS IS" AND ANY
+ * EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+ * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED. IN NO EVENT SHALL APPLE OR ITS CONTRIBUTORS BE LIABLE FOR ANY
+ * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+ * (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+ * LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+ * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF
+ * THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+
+#elements-content {
+  flex: 1 1;
+  overflow: auto;
+  padding: 2px 0 0 0;
+}
+
+.style-panes-wrapper {
+  overflow: hidden auto;
+}
+
+.style-panes-wrapper > div:not(:first-child) {
+  border-top: 1px solid var(--divider-color);
+}
+
+#elements-content:not(.elements-wrap) > div {
+  display: inline-block;
+  min-width: 100%;
+}
+
+#elements-content.elements-wrap {
+  overflow-x: hidden;
+}
+
+#elements-crumbs {
+  flex: 0 0 23px;
+  background-color: white;
+  border-top: 1px solid var(--divider-color);
+  overflow: hidden;
+  width: 100%;
+}
+
+.elements-tree-header {
+  height: 24px;
+  border-top: 1px solid var(--divider-color);
+  border-bottom: 1px solid var(--divider-color);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.elements-tree-header-frame {
+  margin-left: 6px;
+  margin-right: 6px;
+  flex: none;
+}
+
+/*# sourceURL=elements/elementsPanel.css */</style><style>#elements-crumbs{background-color:rgb(36 36 36);}
+
+/*# sourceURL=http://10.10.10.172:8081/devtools/elements/elementsPanel.css.theme */</style><div class="vbox flex-auto split-widget"><div class="vbox flex-auto" slot="insertion-point-main"><div id="elements-content" class="elements-wrap"><div></div></div><div id="elements-crumbs"><div class="vbox flex-auto" aria-hidden="true"></div></div></div><div class="vbox flex-auto tabbed-pane" slot="insertion-point-sidebar"><div class="widget vbox flex-auto view-container overflow-auto" tabindex="-1" role="tabpanel" aria-label="Styles panel"><div class="widget vbox flex-auto"><div class="widget vbox style-panes-wrapper"><div class="vbox flex-auto flex-none"></div><div class="vbox flex-auto flex-none"></div></div></div></div></div></div></div></div></div></div></div></div></div></body></html>

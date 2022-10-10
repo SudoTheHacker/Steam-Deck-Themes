@@ -1,0 +1,10 @@
+{
+    "name": "Alternative Login Screen",
+    "author": "H4CK1SB4D",
+    "manifest_version": 1,
+    "target": "Lock Screen",
+    "description": "Simple modification to the lock screen",
+    "inject": {
+        "shared.css": ["SP"]
+    }
+}
